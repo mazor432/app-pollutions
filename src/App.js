@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyledApp, Wrapper, StyledTitle } from './style';
+import Autocomplete from './Components/Autocomplete';
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <StyledApp>
     <Wrapper >
       <StyledTitle>The most polluted cities:</StyledTitle>
+      <Autocomplete />
     </Wrapper>
   </StyledApp>
   );
