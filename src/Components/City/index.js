@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getCityInfo } from '../../API/wiki';
+import { CityTitle, CityWrapper, CityDescription } from './style'
 
 const City = (props) => {
     const [showText, setShowText] = useState(false);
@@ -12,10 +13,10 @@ const City = (props) => {
         })
       },[props.name]);
     return( 
-        <div onClick={() => setShowText(!showText)}>
-            <h5>{props.name}</h5>
-            {showText && <div>{cityInfo}</div>}
-        </div>
+        <CityWrapper onClick={() => setShowText(!showText)}>
+            <CityTitle>{props.name}</CityTitle>
+            {showText && <CityDescription>{cityInfo}</CityDescription>}
+        </CityWrapper>
     )
 }
 

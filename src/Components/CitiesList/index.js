@@ -3,8 +3,8 @@ import City from '../City';
 
 const CitiesList = (props) => {
     return(
-        props.cities.map(city => (
-            <City name={city}/>
+        props.cities.map( (city, idx) => (
+            <City key={idx} name={city}/>
         ))
      )
 }
