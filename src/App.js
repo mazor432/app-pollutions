@@ -15,17 +15,16 @@ function App() {
     getCities(key).then(res => {
       setCities(res);
       setLoading(false);
-    })
-    ;
+    });
   }
 
   return (
     <StyledApp>
-    <Wrapper >
-      <StyledTitle>The most polluted cities:</StyledTitle>
-      <Autocomplete  getCitiesList={getCitiesList}/>
-      { cities && <CitiesList cities={cities}/>}
-    </Wrapper>
+      <Wrapper >
+        <StyledTitle>The most polluted cities:</StyledTitle>
+        <Autocomplete  getCitiesList={getCitiesList}/>
+        { !loading && <CitiesList cities={cities}/>}
+      </Wrapper>
   </StyledApp>
   );
 }

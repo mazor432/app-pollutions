@@ -8,53 +8,51 @@ class Autocomplete extends Component {
         search: ''
     }
 
-componentDidMount() {
-    this.setState({
+    componentDidMount() {
+        this.setState({
         search: localStorage.getItem("searchValue")
-    });
+        });
     }
 
-filterHints = (value) => (
-    countries.countries.filter( country => country.name.toLowerCase().includes(value.toLowerCase()))
-)  
+    filterHints = (value) => (
+        countries.countries.filter( country => country.name.toLowerCase().includes(value.toLowerCase()))
+    )  
 
-onInputChange = (event) => {
-    this.setState({
-        search: event.target.value,
-        hints: this.filterHints(event.target.value)
-    })
-    localStorage.setItem('searchValue', event.target.value);
-}
+    onInputChange = (event) => {
+        this.setState({
+            search: event.target.value,
+            hints: this.filterHints(event.target.value)
+        })
+        localStorage.setItem('searchValue', event.target.value);
+    }
 
-onInputFocus = () => {
-    this.setState({
-        hints: this.filterHints(this.state.search)
-    });
-}
+    onInputFocus = () => {
+        this.setState({
+            hints: this.filterHints(this.state.search)
+        });
+    }
 
-onHintClick = (hint) => {
-    this.setState({
-        hints: [],
-        search:  hint
-    });
-    localStorage.setItem("searchValue", hint);
-    const countryCode =  countries.countries.find(country => country.name === hint).code;
-    this.props.getCitiesList(countryCode)
-}
-
-
+    onHintClick = (hint) => {
+        this.setState({
+            hints: [],
+            search:  hint
+        });
+        localStorage.setItem("searchValue", hint);
+        const countryCode =  countries.countries.find(country => country.name === hint).code;
+        this.props.getCitiesList(countryCode)
+    }
      
-render(){
-    return(
-        <CountryInput 
-            onInputFocus={this.onInputFocus}
-            onInputChange={this.onInputChange}
-            hintsList={this.state.hints}
-            onHintClick={this.onHintClick}
-            value={this.state.search}
-        />
-    )
-}
+    render(){
+        return(
+            <CountryInput 
+                onInputFocus={this.onInputFocus}
+                onInputChange={this.onInputChange}
+                hintsList={this.state.hints}
+                onHintClick={this.onHintClick}
+                value={this.state.search}
+            />
+        )
+    }
 } 
 
 export default Autocomplete;
