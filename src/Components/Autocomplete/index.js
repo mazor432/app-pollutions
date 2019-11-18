@@ -38,6 +38,8 @@ onHintClick = (hint) => {
         search:  hint
     });
     localStorage.setItem("searchValue", hint);
+    const countryCode =  countries.countries.find(country => country.name === hint).code;
+    this.props.getCitiesList(countryCode)
 }
 
 
