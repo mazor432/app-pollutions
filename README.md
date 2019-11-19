@@ -1,5 +1,18 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Run project 
+1. git clone https://github.com/mazor432/app-pollutions.git
+
+2. yarn
+
+3. yarn start
+
+## Issues
+Can't be restricted Wiki API search to only one category, and if results are more than one, data not be fetched.
+
+## Info
+In this project I used to practise: hooks and styled components.
+
 ## Available Scripts
 
 In the project directory, you can run:
