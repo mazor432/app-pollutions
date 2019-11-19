@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getCityInfo } from '../../API/wiki';
-import { CityTitle, CityWrapper, CityDescription } from './style'
+import { CityTitle, CityWrapper, CityDescription, CityTitleWrapper } from './style'
 
 const City = (props) => {
     const [showText, setShowText] = useState(false);
@@ -14,7 +14,13 @@ const City = (props) => {
       },[props.name]);
     return( 
         <CityWrapper onClick={() => setShowText(!showText)}>
-            <CityTitle>{props.name}</CityTitle>
+            <CityTitleWrapper>
+                <CityTitle>{props.name}</CityTitle> 
+                {showText ? <i className="fas fa-caret-up" /> : <i className="fas fa-caret-down" />}
+            </CityTitleWrapper>
+
+
+
             {showText && <CityDescription>{cityInfo}</CityDescription>}
         </CityWrapper>
     )
