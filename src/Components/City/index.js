@@ -12,16 +12,16 @@ const City = (props) => {
             setCityInfo(cityNfo[0].extract);
         })
       },[props.name]);
+    
+    const cityDescriptionInfo = cityInfo ? cityInfo : <p>City Description not found</p>
+    
     return( 
         <CityWrapper onClick={() => setShowText(!showText)}>
             <CityTitleWrapper>
                 <CityTitle>{props.name}</CityTitle> 
                 {showText ? <i className="fas fa-caret-up" /> : <i className="fas fa-caret-down" />}
             </CityTitleWrapper>
-
-
-
-            {showText && <CityDescription>{cityInfo}</CityDescription>}
+            {showText && <CityDescription>{cityDescriptionInfo}</CityDescription>}
         </CityWrapper>
     )
 }
