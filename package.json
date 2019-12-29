@@ -1,5 +1,6 @@
 {
   "name": "pollutions",
+  "homepage" : "https://mazor432.github.io/app-pollutions/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
