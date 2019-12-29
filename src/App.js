@@ -21,7 +21,7 @@ function App() {
   return (
     <StyledApp>
       <Wrapper >
-        <StyledTitle>The most polluted cities:</StyledTitle>
+        <StyledTitle>The MOST polluted cities:</StyledTitle>
         <Autocomplete  getCitiesList={getCitiesList}/>
         { !loading && <CitiesList cities={cities}/>}
       </Wrapper>
